@@ -10,11 +10,11 @@ spec:
   sources:
     - repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
       targetRevision: HEAD
-      path: manifests/update-manifests-yaml-multisource/test/
+      path: manifests/update-manifests-yaml-multisource-1/test/
       name: the-yaml
     - repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
       targetRevision: HEAD
-      path: manifests/update-manifests-kustomize-octopub/test/
+      path: manifests/update-manifests-yaml-multisource-2/test/
       helm:
         valueFiles:
           - values.yaml
