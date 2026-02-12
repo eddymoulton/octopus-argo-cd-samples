@@ -3,8 +3,10 @@ kind: Application
 metadata:
   name: update-manifests-yaml-multisource-test
   annotations:
-    argo.octopus.com/project.the-yaml: "update-manifests-yaml-multisource"
-    argo.octopus.com/environment.the-yaml: "test"
+    argo.octopus.com/project.yaml-1: "update-manifests-yaml-multisource"
+    argo.octopus.com/environment.yaml-1: "test"
+    argo.octopus.com/project.yaml-2: "update-manifests-yaml-multisource"
+    argo.octopus.com/environment.yaml-2: "test"
 spec:
   project: default
   sources:
