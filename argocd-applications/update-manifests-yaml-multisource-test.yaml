@@ -17,7 +17,7 @@ spec:
     - repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
       targetRevision: HEAD
       path: manifests/update-manifests-yaml-multisource-2/test/
-      name: yaml-1
+      name: yaml-2
   destination:
     server: https://kubernetes.default.svc
     namespace: update-manifests-yaml-multisource-test
