@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: octopub-frontend-cluster-ip
+  name: octopub-frontend-cluster-ip-1
 spec:
   type: ClusterIP
   selector:

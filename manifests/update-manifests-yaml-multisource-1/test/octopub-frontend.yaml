@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: octopub-frontend-deployment
+  name: octopub-frontend-deployment-1
 spec:
   replicas: 1
   selector:
