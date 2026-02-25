@@ -15,9 +15,6 @@ spec:
     server: https://kubernetes.default.svc
     namespace: update-image-tags-yaml-octopub-test
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: false
     syncOptions:
       - Validate=false
       - CreateNamespace=true
