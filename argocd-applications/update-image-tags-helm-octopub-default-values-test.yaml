@@ -5,7 +5,6 @@ metadata:
   annotations:
     argo.octopus.com/project: "update-image-tags-helm-default-values"
     argo.octopus.com/environment: "test"
-    argo.octopus.com/image-replace-paths: "docker.io/{{ .Values.image.repository}}:{{ .Values.image.tag}}"
 spec:
   project: default
   source:
