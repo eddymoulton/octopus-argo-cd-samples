@@ -4,12 +4,6 @@
 
 replicaCount: 1
 
-image:
-  repository: octopussamples/octopub-products-microservice
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "20260126.966.1"
-
 database:
   migrateOnStartup: true
 
