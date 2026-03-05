@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: update-image-tags-yaml-demo-sync-test
+  annotations:
+    argo.octopus.com/project: "argo-step-that-doesn-t-sync"
+    argo.octopus.com/environment: "test"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+    targetRevision: HEAD
+    path: manifests/update-image-tags-yaml-octopub/test-1/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: update-image-tags-yaml-octopub-test
+  syncPolicy:
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
