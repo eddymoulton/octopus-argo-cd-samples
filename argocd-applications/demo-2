@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: update-image-tags-yaml-demo-sync-test
+  name: update-image-tags-yaml-demo-no-sync-test
   annotations:
     argo.octopus.com/project: "argo-step-that-doesn-t-sync"
     argo.octopus.com/environment: "test"
