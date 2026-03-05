@@ -2,8 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: demo-update-manifest-yaml-test
-  annotations:
-    argo.octopus.com/project: "manifest-update"
+  annotations:    
+    argo.octopus.com/project: "manifest-deployment"
     argo.octopus.com/environment: "test"
 spec:
   project: default
