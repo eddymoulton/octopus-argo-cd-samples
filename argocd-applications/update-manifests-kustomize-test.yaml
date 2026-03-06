@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: update-manifests-kustomize-test
+  annotations:
+    argo.octopus.com/project: "update-manifests-kustomize"
+    argo.octopus.com/environment: "test"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+    targetRevision: HEAD
+    path: manifests/update-manifests-kustomize/test/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: update-manifests-kustomize-test
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true

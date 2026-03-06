@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: update-image-tags-yaml-test-2
+  annotations:
+    argo.octopus.com/project: "update-image-tags-yaml"
+    argo.octopus.com/environment: "test"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+    targetRevision: HEAD
+    path: manifests/update-image-tags-yaml/test-2/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: update-image-tags-yaml-test-2
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true

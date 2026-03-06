@@ -1,0 +1,6 @@
+image:
+  repository: nginx
+  tag: "alpine"
+
+podAnnotations:
+  annotationFromDefaultValues: "is set!"

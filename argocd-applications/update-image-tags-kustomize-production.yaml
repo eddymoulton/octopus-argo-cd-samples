@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: update-image-tags-kustomize-production
+  annotations:
+    argo.octopus.com/project: "update-image-tags-kustomize"
+    argo.octopus.com/environment: "production"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+    targetRevision: HEAD
+    path: manifests/update-image-tags-kustomize/production/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: update-image-tags-kustomize-production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true

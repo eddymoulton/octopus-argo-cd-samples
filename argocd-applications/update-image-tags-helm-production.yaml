@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: update-image-tags-helm-production
+  annotations:
+    argo.octopus.com/project.other-source: "update-image-tags-helm"
+    argo.octopus.com/project.values-source: "update-image-tags-helm"
+    argo.octopus.com/environment.values-source: "production"
+    argo.octopus.com/image-replace-paths.helm-source: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+      targetRevision: HEAD
+      path: manifests/update-image-tags-helm/production/chart
+      name: helm-source
+      helm:
+        valueFiles:
+          - $values/manifests/update-image-tags-helm/production/values/values.yaml
+    - repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+      targetRevision: HEAD
+      ref: values
+      name: values-source
+    - repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+      targetRevision: HEAD
+      path: manifests/update-image-tags-helm/production/chart
+      helm:
+        valueFiles:
+          - $other/manifests/update-image-tags-helm/production/values/values.yaml
+    - repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
+      targetRevision: HEAD
+      ref: other
+      name: other-source
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: update-image-tags-helm-production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
