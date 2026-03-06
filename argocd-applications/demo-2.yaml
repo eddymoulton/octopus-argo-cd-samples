@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: demo-2-update-manifest-yaml-test
-  annotations:    
+  annotations:
     argo.octopus.com/project: "manifest-deployment"
     argo.octopus.com/environment: "test"
 spec:
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/eddymoulton/octopus-argo-cd-samples
     targetRevision: HEAD
-    path: manifests/update-manifests-yaml-octopub/test/
+    path: manifests/update-manifests-yaml/test/
   destination:
     server: https://kubernetes.default.svc
     namespace: demo-2-update-manifest-yaml-test
