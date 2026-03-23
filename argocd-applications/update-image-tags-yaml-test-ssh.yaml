@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: update-image-tags-yaml-test-ssh
   annotations:
-    argo.octopus.com/project: "update-image-tags-yaml"
+    argo.octopus.com/project: "update-image-tags-yaml-ssh"
     argo.octopus.com/environment: "test"
 spec:
   project: default
