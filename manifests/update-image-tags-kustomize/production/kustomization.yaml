@@ -7,6 +7,6 @@ images:
   - name: nginx
     newName: nginx
     newTag: alpine
-  - name: redis
-    newName: redis
+  - name: busybox
+    newName: busybox
     newTag: alpine
