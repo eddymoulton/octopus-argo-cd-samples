@@ -6,7 +6,7 @@ resources:
 images:
   - name: nginx
     newName: nginx
-    newTag: alpine
+    newTag: "1.31.8"
   - name: busybox
     newName: busybox
-    newTag: alpine
+    newTag: "1.38"
